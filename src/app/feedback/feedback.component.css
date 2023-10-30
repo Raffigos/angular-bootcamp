@@ -29,21 +29,15 @@ textarea {
   resize: vertical;
 }
 
+textarea {
+  height: 200px;
+}
+
 label {
   padding: 12px 12px 12px 0;
   display: inline-block;
   font-size: larger;
   color: white;
-}
-
-input[type="submit"] {
-  background-color: rgb(37, 116, 161);
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
 }
 
 input[type="submit"]:hover {
@@ -74,13 +68,19 @@ input[type="submit"]:hover {
   clear: both;
 }
 
-table {
-  width: auto;
-}
-
 h3 {
   color: white;
   text-decoration-line: underline;
+}
+
+table {
+  width: auto;
+  background-color: darkolivegreen;
+  color: white;
+}
+
+thead {
+  background-color: rgb(30, 90, 90);
 }
 
 table td,

@@ -1,0 +1,30 @@
+.nav-item {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: gold;
+}
+
+.navbar-dark .navbar-nav .nav-item .nav-link.active {
+  color: lime;
+}
+
+button {
+  color: white;
+  font-weight: 500;
+}
+
+.modal-content {
+  background-color: rgb(44, 41, 41);
+  color: white;
+}
+
+h5 {
+  font-style: italic;
+}

@@ -1,6 +1,8 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/home">Raffi's Bootcamp</a>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/home">
+      <img src="../../assets/images/logo_img.png" alt="logo" />
+    </a>
     <button
       class="navbar-toggler"
       type="button"
@@ -12,17 +14,72 @@
     <div class="collapse navbar-collapse" id="mynavbar">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/news">News</a>
+          <a class="nav-link" routerLink="/news" [routerLinkActive]="['active']"
+            >News</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/about">About</a>
+          <a
+            class="nav-link"
+            routerLink="/about"
+            [routerLinkActive]="['active']"
+            >About</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/feedback">Feedback</a>
+          <a
+            class="nav-link"
+            routerLink="/feedback"
+            [routerLinkActive]="['active']"
+            >Feedback</a
+          >
         </li>
       </ul>
 
-      <button class="btn btn-primary" type="button">Sign in</button>
+      <div class="d-flex">
+        <button
+          class="btn btn-outline-success me-4"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#myModalAdvice"
+          (click)="disableButton()"
+          [disabled]="buttonDisabled"
+        >
+          Daily Advices
+        </button>
+        <button
+          class="btn btn-outline-success"
+          type="button"
+          routerLink="/login"
+        >
+          Login
+        </button>
+      </div>
+
+      <div class="modal modal-dark" id="myModalAdvice">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Daily Advice</h4>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="container mt-3">
+                <div class="mb-3 mt-3">
+                  <h5>{{ randomAdvice }}</h5>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <p>Raffi's Bootcamp</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
