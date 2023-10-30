@@ -1,0 +1,20 @@
+.text-center {
+  color: white;
+}
+
+img {
+  width: 37px;
+  margin-right: 8px;
+}
+
+a {
+  text-decoration: none;
+}
+
+h6 {
+  font-style: italic;
+}
+
+#x-twitter {
+  background-color: white;
+}
