@@ -1,1 +1,142 @@
-<p>home works!</p>
+<div id="bg">
+  <div class="container-fluid mt-1">
+    <div class="row">
+      <section id="sec1">
+        <div class="container">
+          <h1 class="wh">
+            Affordable and Best Quality Web Bootcamp for Newbies!
+          </h1>
+          <br />
+          <p class="wh">
+            This website has everything covered to get started with your journey
+            to become a professional web developer.
+          </p>
+          <hr />
+        </div>
+      </section>
+      <!-- carousel buttons-->
+      <div id="demo" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#demo"
+            data-bs-slide-to="0"
+            class="active"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#demo"
+            data-bs-slide-to="1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#demo"
+            data-bs-slide-to="2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#demo"
+            data-bs-slide-to="3"
+          ></button>
+        </div>
+        <!-- carousel inner contents -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="../../assets/images/basics.jpg"
+              alt="image"
+              width="900"
+              height="400"
+              class="d-block w-100"
+            />
+            <div class="carousel-caption">
+              <h3>HTML & CSS</h3>
+              <p>
+                Hypertext Markup Language(HTML) creates the basic structure of
+                your webpage and Cascading Style Sheets(CSS) adds the design you
+                need to apply.
+              </p>
+            </div>
+          </div>
+          <!-- using template to loop contents from dataservice -->
+          <div class="carousel-item" *ngFor="let p of prolangs">
+            <img
+              src="../../assets/images/{{ p.image }}"
+              alt="image"
+              width="900"
+              height="400"
+              class="d-block w-100"
+            />
+            <div class="carousel-caption">
+              <h3>{{ p.title }}</h3>
+              <p>{{ p.description }}</p>
+            </div>
+          </div>
+        </div>
+        <!-- carousel icons -->
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#demo"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#demo"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+    <br />
+    <div class="bg-success row">
+      <div class="card bg-light mt-1 mb-1 col-md-3">
+        <div class="card-body">
+          <img
+            src="assets/images/pt_1.jpg"
+            style="width: 80px; border-radius: 50px"
+            alt="Learn for free"
+          />
+          <h5 class="card-title">Learn for free</h5>
+        </div>
+      </div>
+
+      <div class="card bg-light mt-1 mb-1 col-md-3">
+        <div class="card-body">
+          <img
+            src="assets/images/pt_2.png"
+            style="width: 80px; border-radius: 50px"
+            alt="Gain experience"
+          />
+          <h5 class="card-title">Gain experience</h5>
+        </div>
+      </div>
+
+      <div class="card bg-light mt-1 mb-1 col-md-3">
+        <div class="card-body">
+          <img
+            src="assets/images/pt_3.png"
+            style="width: 80px; border-radius: 50px"
+            alt="Follow your career"
+          />
+          <h5 class="card-title">Follow your career</h5>
+        </div>
+      </div>
+
+      <div class="card bg-light mt-1 mb-1 col-md-3">
+        <div class="card-body">
+          <img
+            src="assets/images/pt_4.png"
+            style="width: 80px; border-radius: 50px"
+            alt="Get a certificate"
+          />
+          <h5 class="card-title">Get a certificate</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
