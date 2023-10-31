@@ -56,6 +56,8 @@ export class LoginComponent {
 
             this.router.navigate(['/dashboard']);
             this.clearInputs();
+          } else {
+            alert('Wrong credentials. Please try again.');
           }
         });
     }

@@ -1,0 +1,44 @@
+<div class="container-fluid">
+  <h1 class="mt-1">Quiz</h1>
+  <ol *ngIf="quiz">
+    <li *ngFor="let question of quiz">
+      <p>{{ question.question }}</p>
+      <ul class="list-unstyled">
+        <li>
+          <label
+            ><input type="radio" name="{{ question.id }}" value="A" />
+            {{ question.choice_a }}</label
+          >
+        </li>
+        <li>
+          <label
+            ><input type="radio" name="{{ question.id }}" value="B" />
+            {{ question.choice_b }}</label
+          >
+        </li>
+        <li>
+          <label
+            ><input type="radio" name="{{ question.id }}" value="C" />
+            {{ question.choice_c }}</label
+          >
+        </li>
+        <li>
+          <label
+            ><input type="radio" name="{{ question.id }}" value="D" />
+            {{ question.choice_d }}</label
+          >
+        </li>
+      </ul>
+      <br />
+    </li>
+  </ol>
+  <div>
+    <button class="btn btn-primary" (click)="submitQuiz()">Submit</button>
+    <!-- <a href="../../assets/pdfs/Certificate.pdf" download>
+        <button class="btn btn-success" *ngIf="score && score >= 80">
+          Download
+        </button>
+      </a> -->
+  </div>
+  <!-- <p class="mt-3" *ngIf="score !== null">Your score: {{ score }} / 100</p> -->
+</div>

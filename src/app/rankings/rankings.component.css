@@ -1,0 +1,28 @@
+#bg {
+  background-image: url("../../assets/images/bg_users.jpg");
+  padding-top: 150px;
+  background-position: 30% 30%;
+}
+
+h1 {
+  text-align: center;
+}
+
+.table-custom col {
+  border-right: 1px solid black;
+}
+
+.vertical-line td {
+  border-right: 1px solid white;
+}
+
+.line-color {
+  background: linear-gradient(red, blue, orange);
+  color: white;
+}
+
+table {
+  text-align: center;
+  font-size: larger;
+  color: white;
+}

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent {
   randomAdvice: any;
   buttonDisabled: boolean = false;
 
-  constructor(private data: DataService) {
+  constructor(private data: DataService, private router: Router) {
     this.advices = this.data.advices;
   }
 
@@ -33,5 +34,16 @@ export class HeaderComponent {
       (now + 24 * 60 * 60 * 1000).toString()
     );
     this.buttonDisabled = true;
+  }
+
+  // authentication check
+  isAuthenticated() {
+    return this.data.isAuthenticated();
+  }
+
+  // logout
+  logout() {
+    this.data.logout();
+    this.router.navigate(['/home']);
   }
 }

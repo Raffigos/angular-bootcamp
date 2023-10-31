@@ -5,6 +5,9 @@ import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { Feedback } from './feedback';
 import { User } from './user';
+import { Ranking } from './ranking';
+import { Quiz } from './quiz';
+import { Schedule } from './schedule';
 
 @Injectable({
   providedIn: 'root',
@@ -125,5 +128,85 @@ export class DataService {
   onBeforeUnload() {
     ``;
     this.logout();
+  }
+
+  //ranking function
+  getRank(): Observable<Ranking[]> {
+    const user_id = localStorage.getItem('user');
+    return this.httpClient.get<Ranking[]>(
+      `${this.PHP_API_SERVER}user_rank.php?user_id=${user_id}&score=true`
+    );
+  }
+
+  // quiz functions
+  getQuizQuestions(): Observable<Quiz> {
+    return this.httpClient.get<Quiz>(
+      `${this.PHP_API_SERVER}quiz.php?score=true`
+    );
+  }
+
+  saveScore(score: number) {
+    return this.httpClient.post(`${this.PHP_API_SERVER}user_score.php`, {
+      score: score,
+      user_id: this.user?.id,
+    });
+  }
+
+  // schedule functions
+  readSchedule: string =
+    'http://localhost/isd-project/api-project/schedule.php/';
+  createSchedule: string =
+    'http://localhost/isd-project/api-project/create_schedule.php/';
+  updateSchedule: string =
+    'http://localhost/isd-project/api-project/update_schedule.php/';
+  deleteSchedule: string =
+    'http://localhost/isd-project/api-project/delete_schedule.php/';
+
+  fetchSchedule(userId: number) {
+    return this.httpClient.get<Schedule[]>(
+      `${this.readSchedule}?user_id=${userId}`
+    );
+  }
+
+  addSchedule(description: string, date: string, userId: number) {
+    const schedule = {
+      description,
+      date,
+      user_id: userId,
+    };
+    return this.httpClient.post(this.createSchedule, schedule);
+  }
+
+  async modifySchedule(
+    id: number,
+    description: string,
+    date: string,
+    userId: number
+  ): Promise<any> {
+    const schedule = {
+      id,
+      description,
+      date,
+      user_id: userId,
+    };
+
+    try {
+      const response = await this.httpClient
+        .put(this.updateSchedule, schedule)
+        .toPromise();
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  removeSchedule(id: number, userId: number) {
+    const schedule = {
+      body: {
+        id,
+        user_id: userId,
+      },
+    };
+    return this.httpClient.delete<Schedule>(this.deleteSchedule, schedule);
   }
 }

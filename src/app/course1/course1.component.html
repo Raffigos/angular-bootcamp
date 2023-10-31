@@ -1,0 +1,485 @@
+<nav class="navbar sticky-top navbar-expand-sm navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/dashboard" style="font-weight: bold"
+      >Courses</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/course1">HTML/CSS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/course2">JavaScript/TypeScript</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/course3">MySQL/PHP</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/course4">Angular/React</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="card text-white" style="background-color: darkred">
+  <div class="card-body">
+    <h3>Overview</h3>
+    <div class="row">
+      <div class="content">
+        <div>
+          <h4>HTML:</h4>
+          <ul>
+            <li>HTML stands for Hypertext Markup Language.</li>
+            <li>Used to create the structure and content of a webpage.</li>
+            <li>Consists of tags and elements.</li>
+            <li>
+              Tags and elements define layout, headings, paragraphs, images,
+              links, and other content.
+            </li>
+            <li>Standardized language understood by web browsers.</li>
+            <li>
+              Allows for semantic markup, making it easier for search engines to
+              understand content.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4>CSS:</h4>
+          <ul>
+            <li>CSS stands for Cascading Style Sheets.</li>
+            <li>Used to style and layout the content of a webpage.</li>
+            <li>
+              Defines how HTML elements should look, including font, color,
+              size, and position.
+            </li>
+            <li>
+              Allows for responsive design, adapting to different screen sizes.
+            </li>
+            <li>
+              Separates presentation from content, making it easier to update
+              styles.
+            </li>
+            <li>Can be written inline, embedded, or as an external file.</li>
+          </ul>
+        </div>
+      </div>
+      <hr />
+      <div class="centered-list">
+        <h4>Common Features:</h4>
+        <ul>
+          <li>
+            Both create the visual and structural components of a webpage.
+          </li>
+          <li>Both are essential tools for web developers.</li>
+          <li>
+            Learning both of these languages is the first step in creating
+            beautiful and functional websites.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<!-- Step cards -->
+<div class="row">
+  <div class="card ms-4" style="width: 18rem; height: fit-content">
+    <img
+      src="../../assets/images/vscode_img.png"
+      class="card-img-top"
+      alt="VS Code"
+    />
+    <div class="card-body">
+      <h5 class="card-title">Step 1</h5>
+      <p class="card-text">
+        To start with, you must have an IDE to start coding and the recommended
+        one is Visual Studio Code.
+      </p>
+      <a
+        href="https://code.visualstudio.com/download"
+        class="btn btn-primary"
+        target="_blank"
+        style="color: white"
+        >Download</a
+      >
+    </div>
+  </div>
+  <div class="card" style="width: 18rem; height: fit-content">
+    <img
+      src="../../assets/images/index.html.png"
+      class="card-img-top"
+      alt="Explorer"
+    />
+    <div class="card-body">
+      <h5 class="card-title">Step 2</h5>
+      <p class="card-text">
+        Open the explorer in VS code and create a new file called index.html for
+        HTML file and another file called style.css for CSS file by clicking the
+        top left icon or by pressing Ctrl+N on your keyboard.
+      </p>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem; height: fit-content">
+    <img
+      src="../../assets/images/html_basic.png"
+      class="card-img-top"
+      alt="Tags"
+    />
+    <div class="card-body">
+      <h5 class="card-title">Step 3</h5>
+      <p class="card-text">
+        Begin by typing the basic HTML tag codes in index.html file that are
+        provided below. Do the same thing for style.css file by typing the css
+        properties.
+      </p>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem; height: fit-content">
+    <img src="../../assets/images/web.png" class="card-img-top" alt="Index" />
+    <div class="card-body">
+      <h5 class="card-title">Step 4</h5>
+      <p class="card-text">
+        Once you save your work, open index.html and see your website that you
+        have coded.
+      </p>
+    </div>
+  </div>
+</div>
+
+<br />
+<!-- collapse section -->
+<p>
+  <img
+    src="../../assets/images/logo_html.png "
+    style="width: 50px"
+    alt="logo"
+  />
+  <span style="font-weight: bold">HTML</span>
+  <button
+    class="btn btn-danger"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#html1"
+    aria-expanded="false"
+    aria-controls="html1"
+  >
+    Basic Tags
+  </button>
+  <button
+    class="btn btn-danger"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#html2"
+    aria-expanded="false"
+    aria-controls="html2"
+  >
+    Formatting
+  </button>
+  <button
+    class="btn btn-danger"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#html3"
+    aria-expanded="false"
+    aria-controls="html3"
+  >
+    Lists
+  </button>
+  <button
+    class="btn btn-danger"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#html4"
+    aria-expanded="false"
+    aria-controls="html4"
+  >
+    Links
+  </button>
+  <button
+    class="btn btn-danger"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#html5"
+    aria-expanded="false"
+    aria-controls="html5"
+  >
+    Forms
+  </button>
+  <button
+    class="btn btn-danger"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#html6"
+    aria-expanded="false"
+    aria-controls="html6"
+  >
+    Tables
+  </button>
+  <button
+    class="btn btn-danger"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#html7"
+    aria-expanded="false"
+    aria-controls="html7"
+  >
+    Media Tags
+  </button>
+</p>
+<div class="collapse" id="html1">
+  <div class="card card-body bg-danger">
+    &lt;!--This is a comment; The comment is ignored, only humans can read for
+    taking notes. For simplicity, Whatever statement is inside the tags are
+    comments which is applied based on the opening and closing tags.--&gt;
+    <br />
+    &lt;html&gt;Creates an HTML document&lt;/html&gt;
+    <br />
+    &lt;head&gt;Sets off the title & other info that isn't
+    displayed&lt;/head&gt;
+    <br />
+    &lt;body&gt;Sets off the visible portion of the document&lt;/body&gt;
+    <br />
+    &lt;title&gt; Puts name of the document in the title bar; when bookmarking
+    pages, this is what is bookmarked&lt;/title&gt;
+  </div>
+</div>
+
+<div class="collapse" id="html2">
+  <div class="card card-body bg-danger">
+    &lt;p&gt;Creates a new paragraph&lt;/p&gt;
+    <br />
+    &lt;br&gt;Inserts a line break&lt;/br&gt;
+    <br />
+    &lt;hr&gt;Inserts a horizontal line&lt;/hr&gt;
+    <br />
+    &lt;blockquote&gt;Puts content in a quote - indents text from both
+    sides&lt;/blockquote&gt;
+    <br />
+    &lt;div&gt; Used to format block content with CSS&lt;/div&gt;
+    <br />
+    &lt;span&gt; Used to format block content with CSS&lt;/span&gt;
+  </div>
+</div>
+
+<div class="collapse" id="html3">
+  <div class="card card-body bg-danger">
+    &lt;ul&gt;Creates an unordered list&lt;/ul&gt;
+    <br />
+    &lt;ol&gt;Creates an ordered list (start=xx, where xx is a counting
+    number)&lt;/ol&gt;
+    <br />
+    &lt;li&gt;Encompasses each list item&lt;/li&gt;
+  </div>
+</div>
+
+<div class="collapse" id="html4">
+  <div class="card card-body bg-danger">
+    &lt;a href="URL"&gt;Creates a hyperlink to a Uniform Resource
+    Locator&lt;/a&gt;
+    <br />
+    &lt;a href="mailto:EMAIL_ADDRESS"&gt;Creates a hyperlink to an email
+    address&lt;/a&gt;
+    <br />
+    &lt;a href="#NAME"&gt;Creates a link to that target location&lt;/body&gt;
+  </div>
+</div>
+
+<div class="collapse" id="html5">
+  <div class="card card-body bg-danger">
+    &lt;form&gt;Defines a form&lt;/form&gt;
+    <br />
+    &lt;select name="?"&gt;Creates a pulldown menu&lt;/select&gt;
+    <br />
+    &lt;option&gt;Sets off each menu item&lt;/option&gt;
+    <br />
+    &lt;textarea name="?" cols="x" rows="y"&gt;Creates a text box area. Columns
+    set the width; rows set the height.&lt;/textarea&gt;
+    <br />
+    &lt;input type="checkbox" name="?" value="?" checked&gt; Creates a
+    radiobutton which is pre-checked.
+    <br />
+    &lt;input type="radio" name="?" value="?" checked&gt; Creates a checkbox
+    which is pre-checked.
+    <br />
+    &lt;input type="text" name="?" value="?"&gt; Creates a one-line text area.
+    Size sets length, in characters.
+    <br />
+    &lt;input type="submit" value="?"&gt;Creates a submit button. Value sets the
+    text in the submit button.&lt;
+    <br />
+    &lt;input type="image" name="?" src="?" border=? alt=?&gt;Creates a text box
+    area. Columns set the width; rows set the height.
+    <br />
+    &lt;input type="reset"&gt;Creates a reset button.
+  </div>
+</div>
+
+<div class="collapse" id="html6">
+  <div class="card card-body bg-danger">
+    &lt;table&gt;Creates a table&lt;/table&gt;
+    <br />
+    &lt;tr&gt;Sets off each row in a table&lt;/tr&gt;
+    <br />
+    &lt;td&gt;Sets off each cell in a row&lt;/td&gt;
+    <br />
+    &lt;th&gt;Sets off the table header (a normal cell with bold, centered
+    text)&lt;/th&gt;
+  </div>
+</div>
+
+<div class="collapse" id="html7">
+  <div class="card card-body bg-danger">
+    &lt;img src="URL" alt="?"&gt;Adds image; it is a separate file located at
+    the URL(alt is an alternative text that appears in case of an error.)
+    <br />
+    &lt;audio controls&gt;&lt;source src="demo.mp3" type="audio/mpeg"&gt;Adds an
+    audio element&lt;/audio&gt;
+    <br />
+    &lt;video width="480" height="320" controls&gt;&lt;source
+    src="demo_move.mp4" type="video/mp4"&gt;Adds a video element&lt;/video&gt;
+  </div>
+</div>
+<br />
+<p>
+  <img src="../../assets/images/logo_css.png " style="width: 50px" alt="logo" />
+  <span style="font-weight: bold">CSS</span>
+  <button
+    class="btn btn-primary"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#css1"
+    aria-expanded="false"
+    aria-controls="css1"
+  >
+    Font
+  </button>
+  <button
+    class="btn btn-primary"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#css2"
+    aria-expanded="false"
+    aria-controls="css2"
+  >
+    Text
+  </button>
+  <button
+    class="btn btn-primary"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#css3"
+    aria-expanded="false"
+    aria-controls="css3"
+  >
+    Background
+  </button>
+  <button
+    class="btn btn-primary"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#css4"
+    aria-expanded="false"
+    aria-controls="css4"
+  >
+    Layout
+  </button>
+  <button
+    class="btn btn-primary"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#css5"
+    aria-expanded="false"
+    aria-controls="css5"
+  >
+    CSS Binding
+  </button>
+</p>
+<div class="collapse" id="css1">
+  <div class="card card-body bg-primary">
+    Font-Family => Changes the font family of certain words, sentences,
+    paragraphs, etc. Example: p &lcub; font-family: "New Century Schoolbook",
+    Times, serif; &rcub;
+    <br />
+    Font-Style => Changes text: normal, oblique, and italics. Example: h1 &lcub;
+    font-style: oblique; &rcub; P &lcub; font-style: normal; &rcub;
+    <br />
+    Font-Weight => Used to specify the weight of the font. Example: h1 &lcub;
+    font-weight: 800; &rcub; or p &lcub; font-weight: normal; &rcub;
+    <br />
+    Font-Size => Used to modify the size of the displayed font. Example: h1
+    &lcub; font-size: large; &rcub; or p &lcub; font-size: 12pt; &rcub; li
+    &lcub; font-size: 90%; &rcub; strong &lcub; font-size: larger; &rcub;
+  </div>
+</div>
+
+<div class="collapse" id="css2">
+  <div class="card card-body bg-primary">
+    Text-Decoration => Allows text to be decorated through one of five
+    properties: underline, overline, line-through, blink, none. Example: a:link,
+    a:visited, a:active &lcub; text-decoration: none; &rcub;
+    <br />
+    Text-Align => Used to justify text left, center, right, and justify.
+    Example: h1 &lcub; text-align: center; &rcub; p &lcub; text-align: justify;
+    &rcub;
+    <br />
+    Text-Transform => Allows for capitalizing the first letter of each word
+    (capitalize), capitalizing all letters of a word (uppercase), using all
+    small letters in each word(lowercase), and the inital value(none). Example
+    h1 &lcub; text-transform: uppercase; &rcub; h2 &lcub; text-transform:
+    capitalize; &rcub;
+  </div>
+</div>
+
+<div class="collapse" id="css3">
+  <div class="card card-body bg-primary">
+    color => Changes the color of text. Example: h1 &lcub; color: blue; &rcub;
+    or h2 &lcub; color: #000080; &rcub;
+    <br />
+    Background-Color => Sets the background color of an element. Example: body
+    &lcub; background-color: white; &rcub; h1 &lcub; background-color: #000080;
+    &rcub;
+    <br />
+    Background-Image => Sets the background image of an element. Example: body
+    &lcub; background-image: url(/images/foo.gif); &rcub; p &lcub;
+    background-image: url(http://www.htmlhelp.com/bg.png); &rcub;
+    <br />
+    Background-Repeat => Determines how a specified background image is
+    repeated. The repeat-x value will repeat the image horizontally while the
+    repeat-y value will repeat the image vertically. Example: body &lcub;
+    background-repeat: repeat-x; &rcub;
+  </div>
+</div>
+
+<div class="collapse" id="css4">
+  <div class="card card-body bg-primary">
+    Margin => Sets the margins of an element by specifying top, bottom, left and
+    right margins -- all either specifying length or percentage. Example: body
+    &lcub; margin: 5em; &rcub; /* all margins 5em */ p &lcub; margin: 2em 4em;
+    &rcub; /* top & bottom 2em, left & right 4em */ div &lcub; margin: 1em 2em
+    3em 4em; &rcub; /* top margin 1em, right 2em, bottom 3em, left 4em */
+    <br />
+    Padding => Shorthand for the padding-top, padding-right, padding-bottom, and
+    padding-left properties. Example: p &lcub; padding: 2em 4em 5em 4em; &rcub;
+    <br />
+    Border => Sets the width, style, and color of an element's border. Example:
+    p &lcub; border: 10px, red, double; &rcub;
+  </div>
+</div>
+
+<div class="collapse" id="css5">
+  <div class="card card-body bg-primary">
+    &lt;link rel="stylesheet" href="style.css" /&gt; => href represents the file
+    directory that is located. This statement is written inside the head tag.
+  </div>
+</div>

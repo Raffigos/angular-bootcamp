@@ -1,0 +1,27 @@
+.bg-success {
+  background: radial-gradient(green, black, blue);
+  width: auto;
+  text-align: center;
+}
+
+h1 {
+  color: white;
+}
+
+button {
+  margin-left: 13px;
+}
+
+.collapse {
+  color: white;
+  font-weight: bold;
+}
+
+/* #del {
+  background-color: red;
+  border: none;
+} */
+
+.card {
+  margin-right: 10px;
+}

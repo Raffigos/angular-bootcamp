@@ -1,0 +1,262 @@
+<nav class="navbar sticky-top navbar-expand-sm navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/dashboard" style="font-weight: bold"
+      >Courses</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/course1">HTML/CSS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/course2">JavaScript/TypeScript</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/course3">MySQL/PHP</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/course4">Angular/React</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="card text-white" style="background-color: purple">
+  <div class="card-body">
+    <h3>Overview</h3>
+    <div class="row">
+      <div class="content">
+        <div>
+          <h4>Angular:</h4>
+          <ul>
+            <li>Developed and maintained by Google.</li>
+            <li>
+              Uses TypeScript, a superset of JavaScript, for type checking and
+              other features.
+            </li>
+            <li>
+              Includes a full-featured framework with built-in features for
+              routing, forms, animations, and more.
+            </li>
+            <li>
+              Supports transactions to ensure data integrity and consistency.
+            </li>
+            <li>
+              Has a steep learning curve due to its comprehensive features and
+              heavy syntax
+            </li>
+            <li>
+              Has a larger file size compared to React, which can affect
+              performance on slower connections
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4>React:</h4>
+          <ul>
+            <li>Developed and maintained by Facebook</li>
+            <li>
+              Uses JSX, an XML-like syntax that allows mixing HTML and
+              JavaScript code, and plain JavaScript
+            </li>
+            <li>
+              Focuses primarily on the view layer of applications, with less
+              emphasis on built-in features for routing, forms, etc.
+            </li>
+            <li>
+              Has a simpler syntax and a more straightforward learning curve
+              than Angular
+            </li>
+            <li>
+              PHP code is executed only when a request is made to the server,
+              making it suitable for web applications.
+            </li>
+            <li>
+              Has a smaller file size compared to Angular, which can improve
+              performance on slower connections.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr />
+      <div class="centered-list">
+        <h4>Common Features:</h4>
+        <ul>
+          <li>Both languages use a component-based architecture.</li>
+          <li>
+            Both are popular and widely used front-end development frameworks
+          </li>
+          <li>
+            Both have strong tooling support, with tools like Angular CLI and
+            Create React App simplifying setup and development
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<!-- Step cards -->
+<div class="row">
+  <div class="card ms-4" style="width: 18rem; height: fit-content">
+    <img
+      src="../../assets/images/angulact.jpg"
+      class="card-img-top"
+      alt="Angulact"
+    />
+    <div class="card-body">
+      <h5 class="card-title">Step 1</h5>
+      <p class="card-text">
+        Starting with Angular, assuming that you have installed Node.js, open
+        Command Prompt and type
+        <small>npm install –g @angular/cli</small> to install Angular CLI. For
+        React app, type <small>npx create-react-app "my-app"</small>. <br />For
+        more information, visit the official websites of both frameworks.
+      </p>
+      <a
+        href="https://angular.io/"
+        class="btn"
+        target="_blank"
+        style="color: white; background-color: darkred"
+        >Angular</a
+      >
+      <a
+        href="https://react.dev/"
+        class="btn ms-4"
+        target="_blank"
+        style="color: white; background-color: darkblue"
+        >React</a
+      >
+    </div>
+  </div>
+  <div class="card" style="width: 18rem; height: fit-content">
+    <img
+      src="../../assets/images/angulact_homepage.png"
+      class="card-img-top"
+      alt="phpMyAdmin"
+    />
+    <div class="card-body">
+      <h5 class="card-title">Step 2</h5>
+      <p class="card-text">
+        Once you install Angular CLI, to make a new project, type
+        <small>ng new "ProjectName"</small>. A folder called "ProjectName" will
+        be created in "Users" directory. Right-click on that folder and open
+        with VS Code to get started. Open the terminal and type
+        <small>ng serve -o</small> to open a browser and load the Angular's
+        template webpage.
+        <br />
+        In React, type <small>npm start</small> to load the React's template
+        webpage.
+      </p>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem; height: fit-content">
+    <img
+      src="../../assets/images/component.png"
+      class="card-img-top"
+      alt="SQL"
+    />
+    <div class="card-body">
+      <h5 class="card-title">Step 3</h5>
+      <p class="card-text">
+        In Angular and React, each element works as a component. To add a
+        component in Angular, type in the terminal
+        <small>ng generate component "ComponentName"</small>. In React, you need
+        to install this package for terminal configuration:
+        <small> npm i --save-dev create-react-component-folder </small>. Then
+        you can create component similar to Angular by typing
+        <small>npx crcf components/Button Input</small>.
+      </p>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem; height: fit-content">
+    <img
+      src="../../assets/images/prolang.webp"
+      class="card-img-top"
+      alt="Table"
+    />
+    <div class="card-body">
+      <h5 class="card-title">Step 4</h5>
+      <p class="card-text">
+        Once you create a component in Angular, the folder includes an HTML
+        file, CSS file, and TypeScript file. In React, the folder includes CSS
+        file and JavaScript file. As you can tell, the programming languages
+        that are mentioned are important to understand, otherwise you won't be
+        able to work with these frameworks.
+      </p>
+    </div>
+  </div>
+</div>
+
+<br />
+
+<!-- collapse section -->
+<p>
+  <img
+    src="../../assets/images/logo_angular.svg "
+    style="width: 50px; margin-left: 5px; margin-right: 5px"
+    alt="logo"
+  />
+  <span style="font-weight: bold">Angular</span>
+  <button
+    class="btn"
+    style="background-color: darkred; color: white"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#a1"
+    aria-expanded="false"
+    aria-controls="a1"
+  >
+    Guidelines
+  </button>
+</p>
+<div class="collapse" id="a1">
+  <div class="card card-body text-white" style="background-color: darkred">
+    <iframe
+      src="../../assets/pdfs/Angular_Codes.pdf"
+      frameborder="0"
+      style="height: 70vh"
+    ></iframe>
+  </div>
+</div>
+
+<br />
+<p>
+  <img
+    src="../../assets/images/logo_react.png "
+    style="width: 50px; margin-left: 5px; margin-right: 5px"
+    alt="logo"
+  />
+  <span style="font-weight: bold">React</span>
+  <button
+    class="btn"
+    style="background-color: darkblue; color: white"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#r1"
+    aria-expanded="false"
+    aria-controls="r1"
+  >
+    Guidelines
+  </button>
+</p>
+<div class="collapse" id="r1">
+  <div class="card card-body bg-primary">
+    <iframe
+      src="../../assets/pdfs/React_Codes.pdf"
+      frameborder="0"
+      style="height: 70vh"
+    ></iframe>
+  </div>
+</div>

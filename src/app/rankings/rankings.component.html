@@ -1,0 +1,28 @@
+<h1>Quiz Rankings</h1>
+<div id="bg">
+  <div class="table-responsive">
+    <table class="table table-bordered table-success table-custom">
+      <colgroup>
+        <col />
+        <col />
+        <col />
+      </colgroup>
+      <thead>
+        <tr>
+          <th class="vertical-line line-color">First Name</th>
+          <th class="vertical-line line-color">Last Name</th>
+          <th class="vertical-line line-color">Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="vertical-line line-col-td" *ngFor="let ranking of rankings">
+          <td style="background-color: teal">{{ ranking.firstName }}</td>
+          <td style="background-color: teal">{{ ranking.lastName }}</td>
+          <td style="background-color: teal">
+            {{ ranking.score }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

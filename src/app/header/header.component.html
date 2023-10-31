@@ -1,8 +1,13 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" routerLink="/home">
-      <img src="../../assets/images/logo_img.png" alt="logo" />
-    </a>
+    <div>
+      <a
+        class="navbar-brand"
+        [routerLink]="isAuthenticated() ? '/dashboard' : '/home'"
+      >
+        <img src="../../assets/images/logo_img.png" alt="logo" />
+      </a>
+    </div>
     <button
       class="navbar-toggler"
       type="button"
@@ -18,7 +23,7 @@
             >News</a
           >
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isAuthenticated()">
           <a
             class="nav-link"
             routerLink="/about"
@@ -26,7 +31,7 @@
             >About</a
           >
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isAuthenticated()">
           <a
             class="nav-link"
             routerLink="/feedback"
@@ -34,47 +39,82 @@
             >Feedback</a
           >
         </li>
+        <li class="nav-item" *ngIf="isAuthenticated()">
+          <a
+            class="nav-link"
+            routerLink="/rankings"
+            [routerLinkActive]="['active']"
+            >Rankings</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="isAuthenticated()">
+          <a
+            class="nav-link"
+            routerLink="/schedules"
+            [routerLinkActive]="['active']"
+            >Schedules</a
+          >
+        </li>
+
+        <li class="nav-item" *ngIf="isAuthenticated()">
+          <a class="nav-link" routerLink="/quiz" [routerLinkActive]="['active']"
+            >Quiz</a
+          >
+        </li>
       </ul>
 
       <div class="d-flex">
-        <button
-          class="btn btn-outline-success me-4"
-          type="button"
-          data-bs-toggle="modal"
-          data-bs-target="#myModalAdvice"
-          (click)="disableButton()"
-          [disabled]="buttonDisabled"
-        >
-          Daily Advices
-        </button>
-        <button
-          class="btn btn-outline-success"
-          type="button"
-          routerLink="/login"
-        >
-          Login
-        </button>
-      </div>
+        <div *ngIf="!isAuthenticated()">
+          <button
+            class="btn btn-outline-success me-4"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#myModalAdvice"
+            (click)="disableButton()"
+            [disabled]="buttonDisabled"
+          >
+            Daily Advices
+          </button>
+        </div>
+        <div *ngIf="!isAuthenticated()">
+          <button
+            class="btn btn-outline-success"
+            type="button"
+            routerLink="/login"
+          >
+            Login
+          </button>
+        </div>
+        <div *ngIf="isAuthenticated()">
+          <button
+            (click)="logout()"
+            class="btn btn-outline-success navbar-btn"
+            type="button"
+          >
+            Logout
+          </button>
+        </div>
 
-      <div class="modal modal-dark" id="myModalAdvice">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Daily Advice</h4>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <div class="container mt-3">
-                <div class="mb-3 mt-3">
-                  <h5>{{ randomAdvice }}</h5>
-                </div>
+        <div class="modal modal-dark" id="myModalAdvice">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Daily Advice</h4>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                ></button>
               </div>
-              <div class="modal-footer">
-                <p>Raffi's Bootcamp</p>
+              <div class="modal-body">
+                <div class="container mt-3">
+                  <div class="mb-3 mt-3">
+                    <h5>{{ randomAdvice }}</h5>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <p>Raffi's Bootcamp</p>
+                </div>
               </div>
             </div>
           </div>
