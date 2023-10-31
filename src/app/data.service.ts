@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { Feedback } from './feedback';
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root',
@@ -54,8 +56,11 @@ export class DataService {
   ];
 
   // PHP files directory
+  user?: User;
   private PHP_API_SERVER = 'http://localhost/php-bootcamp';
-
+  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  );
   constructor(private httpClient: HttpClient, private router: Router) {}
 
   // feedback functions
@@ -70,5 +75,55 @@ export class DataService {
       `${this.PHP_API_SERVER}/create_feedback.php`,
       feedbacks
     );
+  }
+
+  // signup functions
+  readUser(): Observable<User[]> {
+    return this.httpClient.get<User[]>(`${this.PHP_API_SERVER}/index.php`);
+  }
+  createUser(user: User): Observable<User> {
+    return this.httpClient.post<User>(
+      `${this.PHP_API_SERVER}/signup.php`,
+      user
+    );
+  }
+
+  // login functions
+  isAuthenticated() {
+    const currentUser = localStorage.getItem('user');
+    return !!currentUser;
+  }
+
+  get isLoggedIn() {
+    return this.loggedIn.asObservable();
+  }
+
+  readLogin(credential: {
+    email: string;
+    password: string;
+  }): Observable<boolean> {
+    return this.httpClient.post<boolean>(
+      `${this.PHP_API_SERVER}/login.php`,
+      credential
+    );
+  }
+
+  login(user: User) {
+    if (user.email !== '' && user.password !== '') {
+      localStorage.setItem('user', JSON.stringify(user));
+      this.loggedIn.next(true);
+      this.router.navigate(['/']);
+    }
+  }
+
+  logout() {
+    localStorage.removeItem('user');
+    this.loggedIn.next(false);
+    this.router.navigate(['/']);
+  }
+
+  onBeforeUnload() {
+    ``;
+    this.logout();
   }
 }

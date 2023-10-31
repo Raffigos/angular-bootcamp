@@ -7,11 +7,11 @@ import { DataService } from '../data.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  prolangs: any;
-
-  constructor(private data: DataService) {}
-
   ngOnInit(): void {
     this.prolangs = this.data.prolangs;
   }
+
+  prolangs: any;
+
+  constructor(private data: DataService) {}
 }
