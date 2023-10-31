@@ -1,6 +1,6 @@
 # Angular-Bootcamp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.8.
+Raffi's Bootcamp is a Learning Management System (LMS) for a bootcamp where users can study, schedule their courses, take quizzes, and receive certificates upon completion. This project uses Angular for the fornt-end and PHP for the backend and MySQL with PhpMyAdmin for the database.
 
 ## Development server
 
