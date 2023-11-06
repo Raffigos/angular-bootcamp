@@ -16,14 +16,20 @@ export class SchedulesComponent {
   constructor(private data: DataService) {}
 
   ngOnInit(): void {
-    this.fetchSchedule();
+    this.userId = this.data.user?.id ?? 0;
+    const localSchedule = localStorage.getItem('userSchedule');
+    if (localSchedule) {
+      this.schedule = JSON.parse(localSchedule);
+    } else {
+      this.fetchSchedule();
+    }
   }
 
   fetchSchedule() {
-    console.log(this.userId);
     if (this.userId !== 0) {
       this.data.fetchSchedule(this.userId).subscribe((data) => {
         this.schedule = data;
+        localStorage.setItem('userSchedule', JSON.stringify(data));
       });
     }
   }
@@ -48,13 +54,16 @@ export class SchedulesComponent {
       );
       this.fetchSchedule();
     } catch (error) {
-      // Handle error here
+      console.log(error);
     }
   }
 
   deleteSchedule(task: Schedule) {
     this.data.removeSchedule(task.id, this.userId).subscribe(() => {
-      this.fetchSchedule();
+      const index = this.schedule.findIndex((item) => item.id === task.id);
+      if (index !== -1) {
+        this.schedule.splice(index, 1);
+      }
     });
   }
 }

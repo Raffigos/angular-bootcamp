@@ -60,7 +60,7 @@ export class DataService {
 
   // PHP files directory
   user?: User;
-  private PHP_API_SERVER = 'http://localhost/php-bootcamp';
+  private PHP_API_STRING = 'http://localhost/php-bootcamp';
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );
@@ -69,24 +69,25 @@ export class DataService {
   // feedback functions
   readFeedback(): Observable<Feedback[]> {
     return this.httpClient.get<Feedback[]>(
-      `${this.PHP_API_SERVER}/feedback.php`
+      `${this.PHP_API_STRING}/feedback.php`
     );
   }
 
   createFeedback(feedbacks: Feedback): Observable<Feedback> {
     return this.httpClient.post<Feedback>(
-      `${this.PHP_API_SERVER}/create_feedback.php`,
+      `${this.PHP_API_STRING}/create_feedback.php`,
       feedbacks
     );
   }
 
   // signup functions
   readUser(): Observable<User[]> {
-    return this.httpClient.get<User[]>(`${this.PHP_API_SERVER}/index.php`);
+    return this.httpClient.get<User[]>(`${this.PHP_API_STRING}/index.php`);
   }
+
   createUser(user: User): Observable<User> {
     return this.httpClient.post<User>(
-      `${this.PHP_API_SERVER}/signup.php`,
+      `${this.PHP_API_STRING}/signup.php`,
       user
     );
   }
@@ -106,7 +107,7 @@ export class DataService {
     password: string;
   }): Observable<boolean> {
     return this.httpClient.post<boolean>(
-      `${this.PHP_API_SERVER}/login.php`,
+      `${this.PHP_API_STRING}/login.php`,
       credential
     );
   }
@@ -118,7 +119,7 @@ export class DataService {
       this.router.navigate(['/']);
     }
   }
-
+  // logout functions
   logout() {
     localStorage.removeItem('user');
     this.loggedIn.next(false);
@@ -134,33 +135,29 @@ export class DataService {
   getRank(): Observable<Ranking[]> {
     const user_id = localStorage.getItem('user');
     return this.httpClient.get<Ranking[]>(
-      `${this.PHP_API_SERVER}user_rank.php?user_id=${user_id}&score=true`
+      `${this.PHP_API_STRING}/user_rank.php?user_id=${user_id}&score=true`
     );
   }
 
   // quiz functions
   getQuizQuestions(): Observable<Quiz> {
     return this.httpClient.get<Quiz>(
-      `${this.PHP_API_SERVER}quiz.php?score=true`
+      `${this.PHP_API_STRING}/quiz.php?score=true`
     );
   }
 
   saveScore(score: number) {
-    return this.httpClient.post(`${this.PHP_API_SERVER}user_score.php`, {
+    return this.httpClient.post(`${this.PHP_API_STRING}/user_score.php`, {
       score: score,
       user_id: this.user?.id,
     });
   }
 
   // schedule functions
-  readSchedule: string =
-    'http://localhost/isd-project/api-project/schedule.php/';
-  createSchedule: string =
-    'http://localhost/isd-project/api-project/create_schedule.php/';
-  updateSchedule: string =
-    'http://localhost/isd-project/api-project/update_schedule.php/';
-  deleteSchedule: string =
-    'http://localhost/isd-project/api-project/delete_schedule.php/';
+  readSchedule: string = `${this.PHP_API_STRING}/schedule.php`;
+  createSchedule: string = `${this.PHP_API_STRING}/create_schedule.php`;
+  updateSchedule: string = `${this.PHP_API_STRING}/update_schedule.php`;
+  deleteSchedule: string = `${this.PHP_API_STRING}/delete_schedule.php`;
 
   fetchSchedule(userId: number) {
     return this.httpClient.get<Schedule[]>(
