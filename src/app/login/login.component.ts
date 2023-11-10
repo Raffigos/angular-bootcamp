@@ -20,6 +20,12 @@ export class LoginComponent {
     phone: null,
   };
 
+  ngOnInit() {
+    if (this.data.isAuthenticated()) {
+      this.router.navigate(['/dashboard']);
+    }
+  }
+
   constructor(private data: DataService, private router: Router) {
     this.data.readUser().subscribe((users: User[]) => {
       this.users = users;
@@ -27,8 +33,6 @@ export class LoginComponent {
   }
 
   login(form: { value: User }) {
-    form.value.email = this.selectedUser.email;
-    form.value.password = this.selectedUser.password;
     if (
       form.value.email === this.selectedUser.email &&
       form.value.password === this.selectedUser.password
@@ -40,20 +44,7 @@ export class LoginComponent {
         })
         .subscribe((response) => {
           if (response) {
-            localStorage.setItem(
-              'user',
-              JSON.stringify({
-                firstName: this.selectedUser.firstName,
-                email: this.selectedUser.email,
-                user_id: response,
-              })
-            );
-
-            this.data.user = new User(
-              Number(response),
-              this.selectedUser.email
-            );
-
+            this.data.login(response);
             this.router.navigate(['/dashboard']);
             this.clearInputs();
           } else {

@@ -16,20 +16,18 @@ export class SchedulesComponent {
   constructor(private data: DataService) {}
 
   ngOnInit(): void {
-    this.userId = this.data.user?.id ?? 0;
-    const localSchedule = localStorage.getItem('userSchedule');
-    if (localSchedule) {
-      this.schedule = JSON.parse(localSchedule);
-    } else {
+    if (this.userId) {
+      this.schedule = this.loadScheduleFromLocalStorage() || [];
       this.fetchSchedule();
     }
   }
 
   fetchSchedule() {
-    if (this.userId !== 0) {
-      this.data.fetchSchedule(this.userId).subscribe((data) => {
+    const userId = this.data.user?.id;
+    if (userId) {
+      this.data.fetchSchedule(userId).subscribe((data) => {
         this.schedule = data;
-        localStorage.setItem('userSchedule', JSON.stringify(data));
+        this.saveScheduleToLocalstorage(data);
       });
     }
   }
@@ -41,6 +39,7 @@ export class SchedulesComponent {
         this.fetchSchedule();
         this.description = '';
         this.date = '';
+        alert('Schedule added successfully.');
       });
   }
 
@@ -53,17 +52,33 @@ export class SchedulesComponent {
         this.userId
       );
       this.fetchSchedule();
-    } catch (error) {
-      console.log(error);
-    }
+      alert('Schedule updated successfully.');
+    } catch (error) {}
   }
 
   deleteSchedule(task: Schedule) {
-    this.data.removeSchedule(task.id, this.userId).subscribe(() => {
-      const index = this.schedule.findIndex((item) => item.id === task.id);
-      if (index !== -1) {
-        this.schedule.splice(index, 1);
-      }
-    });
+    const confirmDelete = confirm(
+      'Are you sure you want to delete this schedule?'
+    );
+    if (confirmDelete) {
+      this.data.removeSchedule(task.id, this.userId).subscribe(() => {
+        const index = this.schedule.findIndex((item) => item.id === task.id);
+        if (index !== -1) {
+          this.schedule.splice(index, 1);
+          alert('Schedule deleted successfully.');
+        }
+      });
+    }
+  }
+
+  private saveScheduleToLocalstorage(data: Schedule[]) {
+    const localScheduleKey = `userSchedule_${this.userId}`;
+    localStorage.setItem(localScheduleKey, JSON.stringify(data));
+  }
+
+  private loadScheduleFromLocalStorage(): Schedule[] | null {
+    const localScheduleKey = `userSchedule_${this.userId}`;
+    const storedData = localStorage.getItem(localScheduleKey);
+    return storedData ? JSON.parse(storedData) : null;
   }
 }

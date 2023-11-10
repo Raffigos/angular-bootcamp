@@ -31,7 +31,7 @@ export class QuizComponent {
     }
 
     this.data.saveScore(this.score).subscribe((response) => {
-      console.log('Score: ' + response);
+      // console.log('Score: ' + response);
     });
 
     this.data.getRank().subscribe((data: any) => {

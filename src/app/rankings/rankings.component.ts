@@ -34,7 +34,7 @@ export class RankingsComponent {
     this.dataService.getRank().subscribe(
       (rankings: Ranking[]) => {
         this.rankings = rankings;
-        console.log('Fetched rankings:', this.rankings);
+        // console.log('Fetched rankings:', this.rankings);
       },
       (error) => {
         console.error('Failed to fetch rankings:', error);

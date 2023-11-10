@@ -13,7 +13,6 @@ export class FeedbackComponent {
   constructor(private dataService: DataService) {
     this.dataService.readFeedback().subscribe((feedbacks: Feedback[]) => {
       this.feedbacks = feedbacks;
-      console.log(this.feedbacks);
     });
   }
 
@@ -48,7 +47,6 @@ export class FeedbackComponent {
       this.dataService
         .createFeedback(form.value)
         .subscribe((feedback: Feedback) => {
-          console.log('Feedback created, ', feedback);
           alert('Thank you! Your feedback is submitted.');
           this.dataService.readFeedback().subscribe((feedbacks: Feedback[]) => {
             this.feedbacks = feedbacks;

@@ -13,7 +13,11 @@ export class SignupComponent {
     const user = localStorage.getItem('user');
     if (user) {
       const userObject = JSON.parse(user);
-      this.data.user = new User(userObject.id, userObject.email);
+      this.data.user = new User(
+        userObject.id,
+        userObject.firstName,
+        userObject.email
+      );
     }
   }
 
@@ -57,12 +61,6 @@ export class SignupComponent {
     ) {
       alert('Please fill in all required fields.');
       return;
-    }
-
-    if (this.selectedUser && this.selectedUser.id) {
-      this.data.readUser().subscribe((users: User[]) => {
-        this.users = users;
-      });
     } else {
       this.data.createUser(form.value).subscribe((user: User) => {
         alert('Registration Success!');

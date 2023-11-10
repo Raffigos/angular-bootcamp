@@ -64,7 +64,12 @@ export class DataService {
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );
-  constructor(private httpClient: HttpClient, private router: Router) {}
+  constructor(private httpClient: HttpClient, private router: Router) {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      this.user = JSON.parse(storedUser);
+    }
+  }
 
   // feedback functions
   readFeedback(): Observable<Feedback[]> {
@@ -102,28 +107,28 @@ export class DataService {
     return this.loggedIn.asObservable();
   }
 
-  readLogin(credential: {
-    email: string;
-    password: string;
-  }): Observable<boolean> {
-    return this.httpClient.post<boolean>(
+  readLogin(credential: { email: string; password: string }): Observable<User> {
+    return this.httpClient.post<User>(
       `${this.PHP_API_STRING}/login.php`,
       credential
     );
   }
 
   login(user: User) {
-    if (user.email !== '' && user.password !== '') {
+    if (user.id) {
+      this.user = user;
       localStorage.setItem('user', JSON.stringify(user));
       this.loggedIn.next(true);
       this.router.navigate(['/']);
     }
   }
+
   // logout functions
   logout() {
+    this.clearSchedule();
     localStorage.removeItem('user');
     this.loggedIn.next(false);
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 
   onBeforeUnload() {
@@ -150,6 +155,8 @@ export class DataService {
     return this.httpClient.post(`${this.PHP_API_STRING}/user_score.php`, {
       score: score,
       user_id: this.user?.id,
+      firstName: this.user?.firstName,
+      lastName: this.user?.lastName,
     });
   }
 
@@ -205,5 +212,13 @@ export class DataService {
       },
     };
     return this.httpClient.delete<Schedule>(this.deleteSchedule, schedule);
+  }
+
+  private clearSchedule() {
+    const userId = this.user?.id;
+    if (userId) {
+      const localScheduleKey = `userSchedule_${userId}`;
+      localStorage.removeItem(localScheduleKey);
+    }
   }
 }
